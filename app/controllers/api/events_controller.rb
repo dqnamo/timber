@@ -13,7 +13,7 @@ class Api::EventsController < Api::ApplicationController
       message: params[:message],
       identified_user: identified_user,
       metadata: params[:metadata] || {},
-      public_created_at: Time.at(params[:timestamp].to_i) || Time.now,
+      public_created_at: params[:timestamp].present? ? Time.at(params[:timestamp].to_i) : nil
     )
 
     render json: { success: true }

@@ -1,0 +1,28 @@
+.text-5xl.font-bold.mb-4.text-stone-800.text-center.max-w-xl.mx-auto
+  Simple, Open Source Product Event Logging
+.text-lg.text-stone-600.text-center.max-w-xl.mx-auto
+  Easily log and track events in your product with a simple API.
+
+.flex.flex-row.gap-2.items-center.mx-auto.w-max.mt-10
+  - if current_user
+    = link_to projects_path do
+      .flex.flex-row.gap-1.items-center.px-4.py-2.bg-orange-500.border.border-b-4.border-orange-600.rounded-md.text-sm.text-orange-50.hover:bg-orange-600.hover:border-orange-700.hover:shadow-lg.transition-all
+        %i.ph.ph-dashboard
+        Dashboard
+  - else
+    = link_to sign_in_path do
+      .flex.flex-row.gap-1.items-center.px-4.py-2.bg-orange-500.border.border-b-4.border-orange-600.rounded-md.text-sm.text-orange-50.hover:bg-orange-600.hover:border-orange-700.hover:shadow-lg.transition-all
+        %i.ph.ph-user
+        Get Started
+  
+  = link_to "https://github.com/dqnamo/timber", target: '_blank' do
+    .flex.flex-row.gap-1.items-center.px-4.py-2.bg-neutral-700.border.border-b-4.border-neutral-800.rounded-md.text-sm.text-neutral-50.hover:bg-neutral-800.hover:border-neutral-900.hover:shadow-lg.transition-all
+      %i.ph.ph-github-logo
+      Github
+  
+  = link_to "https://twitter.com/dqnamo", target: '_blank' do
+    .flex.flex-row.gap-1.items-center.px-4.py-2.bg-neutral-700.border.border-b-4.border-neutral-800.rounded-md.text-sm.text-neutral-50.hover:bg-neutral-800.hover:border-neutral-900.hover:shadow-lg.transition-all
+      -# %i.ph.ph-twitter-logo
+      Follow me on X?
+
+= image_tag 'dash.png', class: 'mx-auto.mt-10 border border-stone-300 rounded-md shadow-xl mt-16'

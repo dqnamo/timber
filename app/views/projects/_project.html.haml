@@ -1,0 +1,6 @@
+= link_to project do
+  .flex.flex-col.p-5.border.border-b-4.rounded-md.transition-all{class: 'bg-stone-200/50 border-stone-300 hover:bg-stone-300/50 hover:border-stone-400/50 hover:shadow-md'}
+    .text-lg.font-medium
+      = project.name
+    .text-xs.text-stone-600
+      created #{time_ago_in_words(project.created_at)} ago

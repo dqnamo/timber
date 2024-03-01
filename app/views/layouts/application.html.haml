@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
+    %title Timber
+    %meta{:content => "width=device-width,initial-scale=1", :name => "viewport"}/
+    = csrf_meta_tags
+    = csp_meta_tag
+    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
+    = stylesheet_link_tag "application", "data-turbo-track": "reload"
+    = javascript_importmap_tags
+    %link{:href => "https://fonts.googleapis.com", :rel => "preconnect"}/
+    %link{:crossorigin => "", :href => "https://fonts.gstatic.com", :rel => "preconnect"}/
+    %link{:href => "https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&family=Varela+Round&display=swap", :rel => "stylesheet"}
+    %script{:src => "https://unpkg.com/@phosphor-icons/web"}
+
+  %body.bg-stone-100
+    .flex.flex-row.mt-10.mx-auto.w-max.items-center.gap-1
+      = image_tag "wood-emoji.png", class: "h-5"
+      .font-heading
+        dqnamo/timber
+    %main.container.mx-auto.max-w-5xl.mt-10.px-5
+      = yield

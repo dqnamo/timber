@@ -1,0 +1,13 @@
+= render 'projects/header', project: @project
+
+.grid.grid-cols-4.gap-5.mt-5
+  .rounded-md.border.border-stone-300.p-2.gap-2.flex.flex-col.h-max{class: 'bg-stone-200/50'}
+    = link_to project_events_path(@project) do
+      .flex.flex-row.p-2.items-center.rounded.transition-all{class: controller_name == 'events' && action_name == 'index' ? 'bg-stone-200 border border-stone-300' : 'border border-transparent hover:bg-stone-200'}
+        .flex.flex-col
+          .font-medium.mr-2
+            🚀 All Events
+
+    = render @project.events
+  .h-max.divide-y.divide-stone-300.rounded-md.border.border-stone-300.col-span-3{class: 'bg-stone-200/50'}
+    = render @logs

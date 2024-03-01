@@ -1,0 +1,7 @@
+= link_to project_event_path(@project, event) do
+  .flex.flex-row.p-2.items-center.rounded.transition-all{class: @event == event ? 'bg-stone-200 border border-stone-300' : 'border border-transparent hover:bg-stone-200'}
+    .font-medium.mr-2
+      = event.icon + ' ' + event.name
+    
+    .text-stone-600.bg-stone-300.py-1.px-2.rounded-md.text-xs.ml-auto
+      = event.logs.count

@@ -19,4 +19,17 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   # root "posts#index"
+
+  resources :projects do
+    resources :events, only: [:show, :index] do
+      resources :logs, only: [:show]
+    end
+    resources :identified_users, only: [:show, :index]
+  end
+
+  # API
+  namespace :api do
+    post '/log', to: 'events#log'
+    post '/identify', to: 'identified_users#identify'
+  end
 end

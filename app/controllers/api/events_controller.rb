@@ -12,12 +12,9 @@ class Api::EventsController < Api::ApplicationController
     @event.logs.create(
       message: params[:message],
       identified_user: identified_user,
-      metadata: params[:metadata] || {}
+      metadata: params[:metadata] || {},
+      public_created_at: Time.now || Time.at(params[:timestamp])
     )
-
-    if params[:timestamp].present?
-      @event.update(created_at: Time.at(params[:timestamp].to_i))
-    end
 
     render json: { success: true }
   end

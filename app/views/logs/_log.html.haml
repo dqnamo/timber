@@ -1,5 +1,6 @@
-.flex.flex-row.p-2.items-center.justify-between
-  .text-sm.text-stone-800
-    = log.event.display_name
-  .text-xs.text-stone-500
-    #{time_ago_in_words(log.created_at)} ago
+= link_to project_event_log_path(log.event.project, log.event, log) do
+  .flex.flex-row.p-2.items-center.justify-between.rounded.transition-all{class: @log == log ? 'bg-stone-200 border border-stone-300' : 'border border-transparent hover:bg-stone-200'}
+    .text-sm.text-stone-800
+      = log.event.display_name
+    .text-xs.text-stone-500
+      #{time_ago_in_words(log.created_at)} ago

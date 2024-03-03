@@ -1,6 +1,7 @@
-.flex.flex-row.p-2.items-center
-  %i.ph.ph-user.mr-1
-  .text-sm.text-stone-800
-    = identified_user.email || identified_user.external_id
-  .text-xs.text-stone-500.ml-auto
-    = pluralize(identified_user.logs.count, 'event')
+= link_to project_identified_user_path(identified_user.project, identified_user) do
+  .flex.flex-row.p-2.items-center
+    %i.ph.ph-user.mr-1
+    .text-sm.text-stone-800
+      = identified_user.email || identified_user.external_id
+    .text-xs.text-stone-500.ml-auto
+      = pluralize(identified_user.logs.count, 'event')

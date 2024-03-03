@@ -3,7 +3,7 @@
 .flex.flex-col.gap-5.mt-5
   - if @identified_users.none?
     .p-16.rounded-md.border.border-stone-300.col-span-4{class: 'bg-stone-200/50'}
-      .flex.flex-col.items-center
+      .flex.flex-col.items-center.text-center
         .text-2xl
           🤧
         .text-stone-600
@@ -11,7 +11,7 @@
         .text-sm.text-stone-500
           Take a look at our API documentation to get started.
       
-        = link_to new_project_path do
+        = link_to 'https://timber-logs.readme.io', target: '_blank' do
           .mx-auto.mt-10.flex.flex-col.w-max.px-4.py-2.bg-orange-500.border.border-b-4.border-orange-600.rounded-md.text-sm.text-orange-50.hover:bg-orange-600.hover:border-orange-700.hover:shadow-lg.transition-all
             Read Docs
   - else

@@ -4,7 +4,7 @@ class EventsController < ApplicationController
 
   def index
     @events = @project.events
-    @logs = @project.logs
+    @logs = @project.logs.order(public_created_at: :desc)
   end
 
   def show

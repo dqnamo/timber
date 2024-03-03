@@ -1,19 +1,32 @@
 = render 'projects/header', project: @project
 
-.grid.grid-cols-4.gap-5.mt-10
-  - if @project.events.none?
-    .p-16.rounded-md.border.border-stone-300.col-span-4{class: 'bg-stone-200/50'}
-      .flex.flex-col.items-center
-        .text-2xl
-          🤧
-        .text-stone-600
-          No events yet!
-        .text-sm.text-stone-500
-          Take a look at our API documentation to get started.
-      
-        = link_to new_project_path do
-          .mx-auto.mt-10.flex.flex-col.w-max.px-4.py-2.bg-orange-500.border.border-b-4.border-orange-600.rounded-md.text-sm.text-orange-50.hover:bg-orange-600.hover:border-orange-700.hover:shadow-lg.transition-all
-            Read Docs
+.flex.flex-col.mx-auto.items-center.mt-10.text-center
+  .text-lg
+    🔑 Your API Key
+  .text-stone-600.text-sm
+    This is the key you will use to authenticate your requests to the API.
+  
+  .bg-stone-200.border.border-stone-300.rounded-md.p-2.mt-4
+    .flex.flex-row.items-center.gap-2
+      .text-stone-600#api-key
+        = @project.api_key
+
+  .flex.flex-row.gap-4.items-center  
+    %a{href: "#", onclick: "copyApiKey(); return false;", class: "mx-auto mt-10 flex flex-col w-max px-4 py-2 bg-orange-500 border border-b-4 border-orange-600 rounded-md text-sm text-orange-50 hover:bg-orange-600 hover:border-orange-700 hover:shadow-lg transition-all"}
+      Copy Key
+    = link_to 'https://timber-logs.readme.io', target: '_blank' do
+      .mx-auto.mt-10.flex.flex-col.w-max.px-4.py-2.bg-orange-500.border.border-b-4.border-orange-600.rounded-md.text-sm.text-orange-50.hover:bg-orange-600.hover:border-orange-700.hover:shadow-lg.transition-all
+        Read Docs
 
   -# .p-5.rounded-md.border.border-stone-300{class: 'bg-stone-200/50'}
   -# .h-40.p-5.rounded-md.border.border-stone-300.col-span-3{class: 'bg-stone-200/50'}
+
+  :javascript
+    function copyApiKey() {
+      var apiKey = document.getElementById('api-key').innerText;
+      navigator.clipboard.writeText(apiKey).then(function() {
+        console.log('Async: Copying to clipboard was successful!');
+      }, function(err) {
+        console.error('Async: Could not copy text: ', err);
+      });
+    }

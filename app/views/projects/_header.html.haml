@@ -1,12 +1,12 @@
 
-.flex.flex-row.items-center.justify-between
+.flex.flex-col.gap-2.md:flex-row.md:items-center.md:justify-between
   .flex.flex-col
     .text-xl.font-medium.mr-2
       = project.name
     .text-sm.text-stone-600
-      created #{time_ago_in_words(project.created_at)} ago
+      = pluralize(project.events.count, 'event')
   
-  .flex.flex-row.items-center.rounded-md.border.border-b-4.border-orange-600.overflow-hidden.text-sm.divide-x.divide-orange-600
+  .flex.flex-row.w-max.items-center.rounded-md.border.border-b-4.border-orange-600.overflow-hidden.text-sm.divide-x.divide-orange-600
     = link_to project_events_path(project) do
       .flex.flex-row.items-center.px-4.py-2.gap-1{class: controller_name == 'events' ? 'bg-orange-500 text-orange-50' : 'bg-orange-50 text-orange-800 hover:bg-orange-100 hover:border-orange-300 hover:shadow-lg transition-all'}
         %i.ph.ph-ticket

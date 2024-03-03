@@ -1,24 +1,3 @@
-# README
+## Timber
+Timber is an open-source, simple, real-time product event logging API designed to make it easy for developers to log and track events within their products. With a simple API, you can track major events that are occuring in your app to get more insights.
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
